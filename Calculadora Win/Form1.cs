@@ -1,0 +1,145 @@
+namespace Calculadora_Win
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblitbis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbldes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbTotales_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImperactivo_Click(object sender, EventArgs e)
+        {
+            string huesped = txtHuesped.Text;
+            int noche = (int)nudNoches.Value;
+            decimal tarifa = Convert.ToDecimal(txtTarifa.Text);
+
+            decimal subtotal = noche * tarifa;
+            decimal descuento = 0m;
+            if (noche >= 7)
+            {
+                descuento = subtotal * 0.10m;
+            }
+
+            decimal baseImponible = subtotal - descuento;
+            decimal itbis = baseImponible * 0.18m;
+            decimal servicio = baseImponible * 0.10m;
+            decimal total = baseImponible + itbis + servicio;
+
+
+            lstHistorial.Items.Add($"[IMPERATIVO] {huesped}:us$ {total:N2}");
+        }
+
+        private void lstHistorial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtHuesped.Text))
+            {
+                MessageBox.Show("Escribe el nombre del huésped.", "Falta un dato",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHuesped.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtTarifa.Text, out decimal tarifa) || tarifa <= 0)
+            {
+                MessageBox.Show("La tarifa debe ser un número mayor que cero.", "Dato incorrecto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTarifa.Focus();
+                txtTarifa.SelectAll();
+                return;
+            }
+
+            MessageBox.Show(
+                $"Huésped: {txtHuesped.Text}\nNoches: {nudNoches.Value}\nTemporada alta: {chkTemporadaAlta.Checked}",
+                "Prueba de lectura");
+
+            var reserva = new Reserva
+            {
+                Huesped = txtHuesped.Text,
+                Noches = (int)nudNoches.Value,
+                TarifaPorNoche = decimal.Parse(txtTarifa.Text),
+                esTemporadaAlta = chkTemporadaAlta.Checked
+            };
+
+            lblsu.Text = reserva.Subtotal.ToString("N2");
+            lbldes.Text = "-" + reserva.descuento.ToString("N2");
+            lblit.Text = reserva.Itbis.ToString("N2");
+            lblser.Text = reserva.Servicio.ToString("N2");
+            lbltot.Text = reserva.Total.ToString("N2");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+            txtHuesped.Clear();
+            txtTarifa.Clear();
+            nudNoches.Value = 1;
+            chkTemporadaAlta.Checked = false;
+
+            lblsu.Text = lbldes.Text = lblit.Text =
+                lblser.Text = lbltot.Text = "0.00";
+
+            txtHuesped.Focus();
+        }
+
+        private void btnCopiar_Click(object sender, EventArgs e)
+        {
+            if (lblTotal.Text == "0.00")
+            {
+                MessageBox.Show("Primero calcula una cotización.", "Nada que copiar",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var texto = $"""
+        *Cotización Villa Coral*
+        Huésped: {txtHuesped.Text}
+        Noches: {nudNoches.Value}
+        Subtotal: US$ {lblsu.Text}
+        Descuento: US$ {lbldes.Text}
+        ITBIS 18%: US$ {lblit.Text}
+        Servicio 10%: US$ {lblser.Text}
+        *TOTAL: US$ {lbltot.Text}*
+        """;
+
+            Clipboard.SetText(texto);
+
+            MessageBox.Show("Cotización copiada. Ya puedes pegarla en WhatsApp.", "Listo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
+}
