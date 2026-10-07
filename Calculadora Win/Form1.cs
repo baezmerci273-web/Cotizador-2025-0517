@@ -113,6 +113,8 @@ namespace Calculadora_Win
             lblsu.Text = lbldes.Text = lblit.Text =
                 lblser.Text = lbltot.Text = "0.00";
 
+            lstHistorial.Items.Clear();
+
             txtHuesped.Focus();
         }
 
@@ -182,12 +184,29 @@ namespace Calculadora_Win
             lstHistorial.Items.Add($"resultado {total}");
 
             decimal y = 120m;
-            y = y+ y * 0.25m;
+            y = y + y * 0.25m;
             lstHistorial.Items.Add($"resultado {y}");
 
             int noches = (int)8.9m;
             lstHistorial.Items.Add($"resultado {noches}");
 
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesos_Click(object sender, EventArgs e)
+        {
+            decimal totalusd = Convert.ToDecimal(lbltot.Text);
+            decimal cambio = totalusd * nudTasa.Value;
+            lstHistorial.Items.Add($"Total en RD$:{cambio}");
+        }
+
+        private void nudTasa_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

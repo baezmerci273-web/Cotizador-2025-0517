@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             gbCoti = new GroupBox();
+            btnPesos = new Button();
+            lblTasa = new Label();
+            nudTasa = new NumericUpDown();
             txtTarifa = new TextBox();
             btnLimpiar = new Button();
             btnCalcular = new Button();
@@ -54,12 +57,16 @@
             lstHistorial = new ListBox();
             btnNivel1 = new Button();
             gbCoti.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudTasa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNoches).BeginInit();
             gbTotales.SuspendLayout();
             SuspendLayout();
             // 
             // gbCoti
             // 
+            gbCoti.Controls.Add(btnPesos);
+            gbCoti.Controls.Add(lblTasa);
+            gbCoti.Controls.Add(nudTasa);
             gbCoti.Controls.Add(txtTarifa);
             gbCoti.Controls.Add(btnLimpiar);
             gbCoti.Controls.Add(btnCalcular);
@@ -71,10 +78,40 @@
             gbCoti.Controls.Add(lblHuesped);
             gbCoti.Location = new Point(2, 21);
             gbCoti.Name = "gbCoti";
-            gbCoti.Size = new Size(458, 333);
+            gbCoti.Size = new Size(458, 401);
             gbCoti.TabIndex = 0;
             gbCoti.TabStop = false;
             gbCoti.Text = "Cotizador ";
+            // 
+            // btnPesos
+            // 
+            btnPesos.Location = new Point(287, 334);
+            btnPesos.Name = "btnPesos";
+            btnPesos.Size = new Size(116, 40);
+            btnPesos.TabIndex = 7;
+            btnPesos.Text = "Total en RD$";
+            btnPesos.UseVisualStyleBackColor = true;
+            btnPesos.Click += btnPesos_Click;
+            // 
+            // lblTasa
+            // 
+            lblTasa.AutoSize = true;
+            lblTasa.Location = new Point(24, 198);
+            lblTasa.Name = "lblTasa";
+            lblTasa.Size = new Size(103, 20);
+            lblTasa.TabIndex = 19;
+            lblTasa.Text = "Tasa del dólar";
+            lblTasa.Click += label1_Click_1;
+            // 
+            // nudTasa
+            // 
+            nudTasa.DecimalPlaces = 2;
+            nudTasa.Location = new Point(180, 196);
+            nudTasa.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            nudTasa.Name = "nudTasa";
+            nudTasa.Size = new Size(146, 27);
+            nudTasa.TabIndex = 7;
+            nudTasa.ValueChanged += nudTasa_ValueChanged;
             // 
             // txtTarifa
             // 
@@ -85,7 +122,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(154, 269);
+            btnLimpiar.Location = new Point(154, 334);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(93, 40);
             btnLimpiar.TabIndex = 17;
@@ -95,7 +132,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(18, 269);
+            btnCalcular.Location = new Point(18, 334);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(95, 40);
             btnCalcular.TabIndex = 16;
@@ -107,7 +144,7 @@
             // 
             chkTemporadaAlta.AutoSize = true;
             chkTemporadaAlta.ForeColor = Color.LimeGreen;
-            chkTemporadaAlta.Location = new Point(18, 214);
+            chkTemporadaAlta.Location = new Point(18, 279);
             chkTemporadaAlta.Name = "chkTemporadaAlta";
             chkTemporadaAlta.Size = new Size(172, 24);
             chkTemporadaAlta.TabIndex = 15;
@@ -173,7 +210,7 @@
             gbTotales.Controls.Add(lblitbis);
             gbTotales.Controls.Add(lblDescuento);
             gbTotales.Controls.Add(lblsubtotal);
-            gbTotales.Location = new Point(12, 375);
+            gbTotales.Location = new Point(20, 448);
             gbTotales.Name = "gbTotales";
             gbTotales.Size = new Size(250, 218);
             gbTotales.TabIndex = 1;
@@ -279,7 +316,7 @@
             // 
             btnCopiar.BackColor = SystemColors.Highlight;
             btnCopiar.ForeColor = SystemColors.ButtonHighlight;
-            btnCopiar.Location = new Point(12, 617);
+            btnCopiar.Location = new Point(20, 690);
             btnCopiar.Name = "btnCopiar";
             btnCopiar.Size = new Size(295, 54);
             btnCopiar.TabIndex = 3;
@@ -289,7 +326,7 @@
             // 
             // btnImperactivo
             // 
-            btnImperactivo.Location = new Point(340, 622);
+            btnImperactivo.Location = new Point(348, 695);
             btnImperactivo.Name = "btnImperactivo";
             btnImperactivo.Size = new Size(120, 44);
             btnImperactivo.TabIndex = 4;
@@ -308,7 +345,7 @@
             // 
             // btnNivel1
             // 
-            btnNivel1.Location = new Point(12, 677);
+            btnNivel1.Location = new Point(20, 750);
             btnNivel1.Name = "btnNivel1";
             btnNivel1.Size = new Size(94, 29);
             btnNivel1.TabIndex = 6;
@@ -339,6 +376,7 @@
             Load += Form1_Load;
             gbCoti.ResumeLayout(false);
             gbCoti.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudTasa).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNoches).EndInit();
             gbTotales.ResumeLayout(false);
             gbTotales.PerformLayout();
@@ -372,5 +410,8 @@
         private ListBox lstHistorial;
         private TextBox txtTarifa;
         private Button btnNivel1;
+        private NumericUpDown nudTasa;
+        private Label lblTasa;
+        private Button btnPesos;
     }
 }
