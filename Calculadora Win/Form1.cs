@@ -209,5 +209,28 @@ namespace Calculadora_Win
         {
 
         }
+
+        private void gbCoti_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPorPersona_Click(object sender, EventArgs e)
+        {
+
+            decimal totalusd = Convert.ToDecimal(lbltot.Text);
+            decimal persona = totalusd / nudPorPersona.Value;
+            lstHistorial.Items.Add($"Total que debe pagar cada persona en USD$:{persona}");
+        }
+
+        private void btnDeposito_Click(object sender, EventArgs e)
+        {
+            decimal totalusd = Convert.ToDecimal(lbltot.Text);
+            decimal descuento = totalusd * 0.30m;
+            decimal TOTAL = totalusd - descuento;
+            lstHistorial.Items.Add($"Deposito USD$:{descuento}");
+            lstHistorial.Items.Add($"Cuenta pendiente USD$:{TOTAL}");
+
+        }
     }
 }
