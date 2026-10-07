@@ -149,6 +149,46 @@ namespace Calculadora_Win
             int r = a / b;
             lstHistorial.Items.Add($"resultado {r}");
 
+            decimal c = 10 / 4m;
+            lstHistorial.Items.Add($"resultado {c}");
+
+            int x = 5;
+            x = x + 2;
+            x = x * 3;
+            lstHistorial.Items.Add($"resultado {x}");
+
+            decimal p = 200m;
+            decimal d = p * 0.18m;
+            lstHistorial.Items.Add($"resultado {d}");
+
+            int n = 7;
+            decimal l = 0m;
+            if (n > 7)
+            {
+                l = 50m;
+            }
+            lstHistorial.Items.Add($"resultado {l}");
+
+            int q = 7;
+            bool larga = q >= 7;
+            lstHistorial.Items.Add($"resultado {larga}");
+
+            string s = "Villa" + "Coral";
+            lstHistorial.Items.Add($"resultado {s}");
+
+            int w = 4;
+            decimal t = 100m;
+            decimal total = w * t * 1.28m;
+            lstHistorial.Items.Add($"resultado {total}");
+
+            decimal y = 120m;
+            y = y+ y * 0.25m;
+            lstHistorial.Items.Add($"resultado {y}");
+
+            int noches = (int)8.9m;
+            lstHistorial.Items.Add($"resultado {noches}");
+
+
         }
     }
 }
