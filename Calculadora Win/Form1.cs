@@ -141,5 +141,14 @@ namespace Calculadora_Win
             MessageBox.Show("Cotización copiada. Ya puedes pegarla en WhatsApp.", "Listo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int a = 10;
+            int b = 3;
+            int r = a / b;
+            lstHistorial.Items.Add($"resultado {r}");
+
+        }
     }
 }

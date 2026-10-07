@@ -52,6 +52,7 @@
             btnCopiar = new Button();
             btnImperactivo = new Button();
             lstHistorial = new ListBox();
+            btnNivel1 = new Button();
             gbCoti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNoches).BeginInit();
             gbTotales.SuspendLayout();
@@ -305,12 +306,23 @@
             lstHistorial.TabIndex = 5;
             lstHistorial.SelectedIndexChanged += lstHistorial_SelectedIndexChanged;
             // 
+            // btnNivel1
+            // 
+            btnNivel1.Location = new Point(12, 677);
+            btnNivel1.Name = "btnNivel1";
+            btnNivel1.Size = new Size(94, 29);
+            btnNivel1.TabIndex = 6;
+            btnNivel1.Text = "Nivel 1";
+            btnNivel1.UseVisualStyleBackColor = true;
+            btnNivel1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
-            ClientSize = new Size(886, 816);
+            ClientSize = new Size(1131, 816);
+            Controls.Add(btnNivel1);
             Controls.Add(lstHistorial);
             Controls.Add(btnImperactivo);
             Controls.Add(btnCopiar);
@@ -359,5 +371,6 @@
         private Button btnImperactivo;
         private ListBox lstHistorial;
         private TextBox txtTarifa;
+        private Button btnNivel1;
     }
 }
