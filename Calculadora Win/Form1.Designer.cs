@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gbCoti = new GroupBox();
+            btnFinSemana = new Button();
+            chkFinSemana = new CheckBox();
             btnDeposito = new Button();
             btnPorPersona = new Button();
             lblPersona = new Label();
@@ -69,6 +71,8 @@
             // 
             // gbCoti
             // 
+            gbCoti.Controls.Add(btnFinSemana);
+            gbCoti.Controls.Add(chkFinSemana);
             gbCoti.Controls.Add(btnDeposito);
             gbCoti.Controls.Add(btnPorPersona);
             gbCoti.Controls.Add(lblPersona);
@@ -93,9 +97,30 @@
             gbCoti.Text = "Cotizador ";
             gbCoti.Enter += gbCoti_Enter;
             // 
+            // btnFinSemana
+            // 
+            btnFinSemana.Location = new Point(143, 432);
+            btnFinSemana.Name = "btnFinSemana";
+            btnFinSemana.Size = new Size(131, 43);
+            btnFinSemana.TabIndex = 25;
+            btnFinSemana.Text = "Fines de Semana";
+            btnFinSemana.UseVisualStyleBackColor = true;
+            btnFinSemana.Click += button1_Click_1;
+            // 
+            // chkFinSemana
+            // 
+            chkFinSemana.AutoSize = true;
+            chkFinSemana.ForeColor = Color.Red;
+            chkFinSemana.Location = new Point(18, 321);
+            chkFinSemana.Name = "chkFinSemana";
+            chkFinSemana.Size = new Size(166, 24);
+            chkFinSemana.TabIndex = 24;
+            chkFinSemana.Text = "Fin de semana+15%";
+            chkFinSemana.UseVisualStyleBackColor = true;
+            // 
             // btnDeposito
             // 
-            btnDeposito.Location = new Point(11, 397);
+            btnDeposito.Location = new Point(7, 432);
             btnDeposito.Name = "btnDeposito";
             btnDeposito.Size = new Size(95, 43);
             btnDeposito.TabIndex = 23;
@@ -105,7 +130,7 @@
             // 
             // btnPorPersona
             // 
-            btnPorPersona.Location = new Point(422, 338);
+            btnPorPersona.Location = new Point(418, 373);
             btnPorPersona.Name = "btnPorPersona";
             btnPorPersona.Size = new Size(103, 40);
             btnPorPersona.TabIndex = 22;
@@ -133,7 +158,7 @@
             // 
             // btnPesos
             // 
-            btnPesos.Location = new Point(280, 338);
+            btnPesos.Location = new Point(276, 373);
             btnPesos.Name = "btnPesos";
             btnPesos.Size = new Size(116, 40);
             btnPesos.TabIndex = 7;
@@ -170,7 +195,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(147, 338);
+            btnLimpiar.Location = new Point(143, 373);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(93, 40);
             btnLimpiar.TabIndex = 17;
@@ -180,7 +205,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(11, 338);
+            btnCalcular.Location = new Point(7, 373);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(95, 40);
             btnCalcular.TabIndex = 16;
@@ -466,5 +491,7 @@
         private Label lblPersona;
         private Button btnPorPersona;
         private Button btnDeposito;
+        private Button btnFinSemana;
+        private CheckBox chkFinSemana;
     }
 }

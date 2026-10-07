@@ -232,5 +232,18 @@ namespace Calculadora_Win
             lstHistorial.Items.Add($"Cuenta pendiente USD$:{TOTAL}");
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            decimal tarifa = Convert.ToDecimal(lbltot.Text);
+            decimal total=0, suma;
+            if (chkFinSemana.Checked==true)
+            {
+                suma = tarifa*0.15m;
+                total = tarifa+suma;
+            }
+            var reserva = new Reserva { TarifaPorNoche = total };
+            lstHistorial.Items.Add($"Total en usd por el fin de semana {total}");
+        }
     }
 }
