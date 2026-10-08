@@ -248,7 +248,7 @@ namespace Calculadora_Win
 
         private void btnCuentaTotal_Click(object sender, EventArgs e)
         {
-           
+
             var reserva = new Reserva
             {
 
@@ -258,19 +258,19 @@ namespace Calculadora_Win
                 esTemporadaAlta = chkTemporadaAlta.Checked
             };
 
-           
+
 
             var traslado = new Clase_TrasladoAeropuerto
             {
-                
-                nocturno= chkNocturno.Checked
+
+                nocturno = chkNocturno.Checked
             };
-            var excur = new Excursion { } 
+            var excur = new Excursion { }
 
            ;
-            var bar = new ConsumidorMiniBar 
+            var bar = new ConsumidorMiniBar
             {
-                 
+
             };
 
             lstHistorial.Items.Add($"Nombre de la reserva:{reserva.Huesped} ");
@@ -283,6 +283,15 @@ namespace Calculadora_Win
         private void nudPersonas_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnViejo_Click(object sender, EventArgs e)
+        {
+            lstHistorial.Items.Add($"Depósito de 1000: {SistemaViejo.CalcularDeposito(1000m):N2} (debe dar 300.00)");
+            lstHistorial.Items.Add($"100 USD a tasa 60: {SistemaViejo.APesos(100m, 60m):N2} (debe dar 6,000.00)");
+            lstHistorial.Items.Add($"Tarifa 200 fin de semana: {SistemaViejo.TarifaFinDeSemana(200m, true):N2} (debe dar 230.00)");
+            lstHistorial.Items.Add($"Excursión 4 × 50: {SistemaViejo.TotalExcursion(4, 50m):N2} (debe dar 180.00)");
+            lstHistorial.Items.Add($"Minibar 3 × 4: {SistemaViejo.TotalMinibar(3, 4m):N2} (debe dar 14.16)");
         }
     }
 }

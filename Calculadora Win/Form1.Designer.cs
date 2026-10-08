@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             gbCoti = new GroupBox();
-            nudPersonas = new NumericUpDown();
-            lblCantidad = new Label();
             chkNocturno = new CheckBox();
             btnCuentaTotal = new Button();
             btnFinSemana = new Button();
@@ -66,8 +64,8 @@
             btnImperactivo = new Button();
             lstHistorial = new ListBox();
             btnNivel1 = new Button();
+            btnViejo = new Button();
             gbCoti.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPersonas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPorPersona).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudTasa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNoches).BeginInit();
@@ -76,8 +74,7 @@
             // 
             // gbCoti
             // 
-            gbCoti.Controls.Add(nudPersonas);
-            gbCoti.Controls.Add(lblCantidad);
+            gbCoti.Controls.Add(btnViejo);
             gbCoti.Controls.Add(chkNocturno);
             gbCoti.Controls.Add(btnCuentaTotal);
             gbCoti.Controls.Add(btnFinSemana);
@@ -105,24 +102,6 @@
             gbCoti.TabStop = false;
             gbCoti.Text = "Cotizador ";
             gbCoti.Enter += gbCoti_Enter;
-            // 
-            // nudPersonas
-            // 
-            nudPersonas.Location = new Point(518, 94);
-            nudPersonas.Name = "nudPersonas";
-            nudPersonas.Size = new Size(88, 27);
-            nudPersonas.TabIndex = 29;
-            nudPersonas.ValueChanged += nudPersonas_ValueChanged;
-            // 
-            // lblCantidad
-            // 
-            lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(362, 96);
-            lblCantidad.Name = "lblCantidad";
-            lblCantidad.RightToLeft = RightToLeft.No;
-            lblCantidad.Size = new Size(149, 20);
-            lblCantidad.TabIndex = 28;
-            lblCantidad.Text = "CantidadDePersonas";
             // 
             // chkNocturno
             // 
@@ -473,6 +452,16 @@
             btnNivel1.UseVisualStyleBackColor = true;
             btnNivel1.Click += button1_Click;
             // 
+            // btnViejo
+            // 
+            btnViejo.Location = new Point(444, 432);
+            btnViejo.Name = "btnViejo";
+            btnViejo.Size = new Size(104, 43);
+            btnViejo.TabIndex = 28;
+            btnViejo.Text = "Viejo";
+            btnViejo.UseVisualStyleBackColor = true;
+            btnViejo.Click += btnViejo_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -496,7 +485,6 @@
             Load += Form1_Load;
             gbCoti.ResumeLayout(false);
             gbCoti.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPersonas).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudPorPersona).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudTasa).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNoches).EndInit();
@@ -543,7 +531,6 @@
         private CheckBox chkFinSemana;
         private Button btnCuentaTotal;
         private CheckBox chkNocturno;
-        private NumericUpDown nudPersonas;
-        private Label lblCantidad;
+        private Button btnViejo;
     }
 }
