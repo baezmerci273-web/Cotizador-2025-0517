@@ -236,14 +236,53 @@ namespace Calculadora_Win
         private void button1_Click_1(object sender, EventArgs e)
         {
             decimal tarifa = Convert.ToDecimal(lbltot.Text);
-            decimal total=0, suma;
-            if (chkFinSemana.Checked==true)
+            decimal total = 0, suma;
+            if (chkFinSemana.Checked == true)
             {
-                suma = tarifa*0.15m;
-                total = tarifa+suma;
+                suma = tarifa * 0.15m;
+                total = tarifa + suma;
             }
             var reserva = new Reserva { TarifaPorNoche = total };
             lstHistorial.Items.Add($"Total en usd por el fin de semana {total}");
+        }
+
+        private void btnCuentaTotal_Click(object sender, EventArgs e)
+        {
+           
+            var reserva = new Reserva
+            {
+
+                Huesped = txtHuesped.Text,
+                Noches = (int)nudNoches.Value,
+                TarifaPorNoche = decimal.Parse(txtTarifa.Text),
+                esTemporadaAlta = chkTemporadaAlta.Checked
+            };
+
+           
+
+            var traslado = new Clase_TrasladoAeropuerto
+            {
+                
+                nocturno= chkNocturno.Checked
+            };
+            var excur = new Excursion { } 
+
+           ;
+            var bar = new ConsumidorMiniBar 
+            {
+                 
+            };
+
+            lstHistorial.Items.Add($"Nombre de la reserva:{reserva.Huesped} ");
+            lstHistorial.Items.Add($"Cantidad de personas trasladadas:{traslado.pasajeros}");
+            lstHistorial.Items.Add($"Cantidad de persona de excursion{excur.persona}, Precio C/U: {excur.precioPorPersona}");
+            lstHistorial.Items.Add($"Cantidad consumida en el bar {bar.cantidad} Precio de productos:{bar.precioUnitario}");
+            lstHistorial.Items.Add($"Total a pagar por todo: {reserva.Total + traslado.total + excur.total + bar.total}");
+        }
+
+        private void nudPersonas_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
