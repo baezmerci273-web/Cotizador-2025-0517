@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             gbCoti = new GroupBox();
+            btnViejo = new Button();
             chkNocturno = new CheckBox();
             btnCuentaTotal = new Button();
             btnFinSemana = new Button();
@@ -64,7 +65,7 @@
             btnImperactivo = new Button();
             lstHistorial = new ListBox();
             btnNivel1 = new Button();
-            btnViejo = new Button();
+            btnfactura = new Button();
             gbCoti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudPorPersona).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudTasa).BeginInit();
@@ -74,6 +75,7 @@
             // 
             // gbCoti
             // 
+            gbCoti.Controls.Add(btnfactura);
             gbCoti.Controls.Add(btnViejo);
             gbCoti.Controls.Add(chkNocturno);
             gbCoti.Controls.Add(btnCuentaTotal);
@@ -102,6 +104,16 @@
             gbCoti.TabStop = false;
             gbCoti.Text = "Cotizador ";
             gbCoti.Enter += gbCoti_Enter;
+            // 
+            // btnViejo
+            // 
+            btnViejo.Location = new Point(444, 432);
+            btnViejo.Name = "btnViejo";
+            btnViejo.Size = new Size(104, 43);
+            btnViejo.TabIndex = 28;
+            btnViejo.Text = "Viejo";
+            btnViejo.UseVisualStyleBackColor = true;
+            btnViejo.Click += btnViejo_Click;
             // 
             // chkNocturno
             // 
@@ -452,15 +464,15 @@
             btnNivel1.UseVisualStyleBackColor = true;
             btnNivel1.Click += button1_Click;
             // 
-            // btnViejo
+            // btnfactura
             // 
-            btnViejo.Location = new Point(444, 432);
-            btnViejo.Name = "btnViejo";
-            btnViejo.Size = new Size(104, 43);
-            btnViejo.TabIndex = 28;
-            btnViejo.Text = "Viejo";
-            btnViejo.UseVisualStyleBackColor = true;
-            btnViejo.Click += btnViejo_Click;
+            btnfactura.Location = new Point(427, 263);
+            btnfactura.Name = "btnfactura";
+            btnfactura.Size = new Size(142, 49);
+            btnfactura.TabIndex = 29;
+            btnfactura.Text = "Factura";
+            btnfactura.UseVisualStyleBackColor = true;
+            btnfactura.Click += btnfactura_Click;
             // 
             // Form1
             // 
@@ -532,5 +544,6 @@
         private Button btnCuentaTotal;
         private CheckBox chkNocturno;
         private Button btnViejo;
+        private Button btnfactura;
     }
 }

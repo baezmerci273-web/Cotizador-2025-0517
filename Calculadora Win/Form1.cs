@@ -293,5 +293,37 @@ namespace Calculadora_Win
             lstHistorial.Items.Add($"Excursión 4 × 50: {SistemaViejo.TotalExcursion(4, 50m):N2} (debe dar 180.00)");
             lstHistorial.Items.Add($"Minibar 3 × 4: {SistemaViejo.TotalMinibar(3, 4m):N2} (debe dar 14.16)");
         }
+
+        private void btnfactura_Click(object sender, EventArgs e)
+        {
+            
+        
+            const decimal tasaDolar = 61m;
+
+            var reserva = new Reserva
+            {
+                Huesped = txtHuesped.Text,   
+                Noches = 10,
+                TarifaPorNoche = SistemaViejo.TarifaFinDeSemana(110m, chkFinSemana.Checked)
+            };
+
+            var traslado = new Clase_TrasladoAeropuerto { pasajeros = 3, nocturno = true };
+            var excur = new Excursion { persona = 5, precioPorPersona = 80m };
+            var bar = new ConsumidorMiniBar { cantidad = 9, precioUnitario = 3.5m };
+
+            decimal totalUsd = reserva.Total + traslado.total + excur.total + bar.total;
+            decimal totalRd = SistemaViejo.APesos(totalUsd, tasaDolar);
+            decimal deposito = SistemaViejo.CalcularDeposito(totalUsd);
+
+            lstHistorial.Items.Clear();
+            lstHistorial.Items.Add($"Reserva: US${reserva.Total:N2}");
+            lstHistorial.Items.Add($"Traslado: US${traslado.total:N2}");
+            lstHistorial.Items.Add($"Excursión: US${excur.total:N2}");
+            lstHistorial.Items.Add($"Minibar: US${bar.total:N2}");
+            lstHistorial.Items.Add($"Total general: US${totalUsd:N2}");
+            lstHistorial.Items.Add($"Total general : RD${totalRd:N2}");
+            lstHistorial.Items.Add($"Depósito (30%): US${deposito:N2}");
+        }
     }
-}
+    }
+
